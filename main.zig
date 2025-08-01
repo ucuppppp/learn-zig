@@ -28,6 +28,7 @@ pub fn main() !void {
         10, 100 => @divExact(bla, 10),
         else => bla,
     };
+    // ehe
     print("switch pattern bla = {}\n", .{bla});
 }
 
