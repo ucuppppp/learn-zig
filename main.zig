@@ -20,15 +20,12 @@ pub fn main() !void {
         const cStr = try Fmt.bufPrint(&cBuffer, "{d:.1}", .{c}); 
         print("concatenate baby := a:{s} i:{s} c:{s}\n", .{aStr, iStr, cStr});
     }
+    const fibo = fibonacci(10);
+    print("fibonacci = {}\n", .{fibo});
 }
 
-fn intToStr(i: anytype, buffer: []u8) ![]u8 {
-    return Fmt.formatInt(i, 10, .{}, FormatIntOptions{
-        .case = .lower,
-        .prefix = false,
-        .width = 0,
-        .fill = ' ',
-        // .align = .right,
-        .sign = .default
-    }, buffer);
+
+fn fibonacci(n: u16) u16 {
+    if(n == 0 or n == 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2); 
 }
