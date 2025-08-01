@@ -22,6 +22,13 @@ pub fn main() !void {
     }
     const fibo = fibonacci(10);
     print("fibonacci = {}\n", .{fibo});
+    var bla: i8 = 10;
+    bla = switch (bla) {
+        -1...1 => -bla,
+        10, 100 => @divExact(bla, 10),
+        else => bla,
+    };
+    print("switch pattern bla = {}\n", .{bla});
 }
 
 
